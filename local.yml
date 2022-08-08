@@ -1,0 +1,49 @@
+# run before roles
+---
+- hosts: all
+  become: true
+
+  pre_tasks:
+    - name: pre-run | update package cache (pacman)
+      tags: always
+      pacman: update_cache=yes
+      changed_when: false
+      when: ansible_distribution == "ArchLinux"
+
+    - name: pre-run | update package cache (apt)
+      tags: always
+      apt: update_cache=yes
+      changed_when: false
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+
+# run roles
+- hosts: all
+  tags: base
+  become: true
+  roles:
+    - base
+
+- hosts: workstation
+  tags: workstation
+  become: true
+  roles:
+    - workstation
+
+# run after roles
+- hosts: all
+  become: true
+  tasks:
+    - name: post-run | cleanup package cache (apt)
+      tags: always
+      apt:
+        autoclean: yes
+      changed_when: false
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+    - name: post-run | autoremove orphan packages (apt)
+      tags: always
+      apt:
+        autoremove: yes
+        purge: yes
+      when: ansible_distribution in ["Debian", "Ubuntu"]
