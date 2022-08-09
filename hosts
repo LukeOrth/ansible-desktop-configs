@@ -1,6 +1,6 @@
 ## Ansible Hosts File
 
 [workstations]
-work ansible_connection=local
+localhost ansible_connection=local
 personal ansible_connection=local
 
