@@ -24,11 +24,11 @@
   roles:
     - base
 
-- hosts: workstation
-  tags: workstation
+- hosts: workstations
+  tags: workstations
   become: true
   roles:
-    - workstation
+    - workstations
 
 # run after roles
 - hosts: all
