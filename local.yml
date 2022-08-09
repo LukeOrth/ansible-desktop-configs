@@ -28,7 +28,7 @@
   tags: workstations
   become: true
   roles:
-    - workstations
+    - workstation
 
 # run after roles
 - hosts: all
