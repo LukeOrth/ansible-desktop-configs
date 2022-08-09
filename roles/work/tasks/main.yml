@@ -1,0 +1,5 @@
+- name: install packages
+  package:
+    name:
+      - network-manager-fortisslvpn-gnome
+    state: latest
