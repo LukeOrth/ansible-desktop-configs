@@ -2,3 +2,8 @@
 
 [workstation]
 localhost ansible_connection=local
+
+[personal:children]
+
+[work:children]
+workstation
