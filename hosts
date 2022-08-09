@@ -1,5 +1,5 @@
 ## Ansible Hosts File
 
 [workstations]
-work 127.0.0.1
-personal 127.0.0.1
+work ansible_host=127.0.0.1
+personal ansible_host=127.0.0.1
