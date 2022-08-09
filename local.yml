@@ -30,18 +30,6 @@
   roles:
     - workstation
 
-- hosts: work
-  tags: work
-  become: true
-  roles:
-    - work
-
-- hosts: personal
-  tags: personal
-  become: true
-  roles:
-    - personal
-
 # run after roles
 - hosts: all
   become: true
