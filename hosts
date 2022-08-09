@@ -1,11 +1,10 @@
 ## Ansible Hosts File
 
-[work]
+[workstation]
 localhost ansible_connection=local
 
-[personal]
-localhost ansible_connection=local
+[work:children]
+workstation
 
-[workstations:children]
-work
-personal
+[personal:children]
+workstation
