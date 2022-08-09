@@ -1,4 +1,4 @@
-- name: install packages
+- name: workstation packages
   package:
     name:
       - sct

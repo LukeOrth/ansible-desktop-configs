@@ -1,4 +1,4 @@
-- name: install packages
+- name: work packages
   package:
     name:
       - network-manager-fortisslvpn-gnome

@@ -1,4 +1,4 @@
-- name: install packages
+- name: personal packages
   package:
     name:
       - unzip
