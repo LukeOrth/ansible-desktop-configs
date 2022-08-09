@@ -1,2 +1,4 @@
-[workstation]
-127.0.0.1
+## Ansible Hosts File
+
+[workstations]
+workstation ansible_host=127.0.0.1
