@@ -1,6 +1,7 @@
 - name: users | hermes | create user
   user:
     name: hermes
+    group: ansible
     system: yes
 
 - name: users | hermes | add sudoers file
