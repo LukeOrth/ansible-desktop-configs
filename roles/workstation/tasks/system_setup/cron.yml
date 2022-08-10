@@ -12,7 +12,7 @@
     user: hermes
     hour: "{{ ansible_cron_hour | default('*') }}"
     minute: "{{ ansible_cron_minute | default('*/30') }}"
-    job: "/usr/local/bin/provision"
+    job: "/usr/local/bin/provision > /dev/null"
 
 - name: system setup | cron | schedule ansible cleanup at boot
   tags: cron
