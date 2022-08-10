@@ -27,17 +27,6 @@
     state: touch
   changed_when: False
 
-- name: ansible setup | create test ansible log file
-  tags: ansible,ansible-setup
-  file:
-    path: /var/log/test_ansible.log
-    owner: hermes
-    group: hermes
-    mode: 0664
-    state: touch
-  changed_when: False
-
-
 - name: ansible setup | add logrotate config for ansible log file
   tags: ansible-setup
   copy:

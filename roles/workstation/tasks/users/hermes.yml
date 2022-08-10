@@ -3,6 +3,14 @@
     name: hermes
     system: yes
 
+- name: users | hermes | add vault key
+  copy:
+    src: users/vault_key
+    dest: /home/hermes/.vault_key
+    owner: hermes
+    group: hermes
+    mode: 0600
+
 - name: users | hermes | add sudoers file
   copy:
     src: users/sudoers_hermes
