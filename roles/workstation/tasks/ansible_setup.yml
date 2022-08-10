@@ -27,7 +27,7 @@
     state: touch
   changed_when: False
 
-- name: ansible setup | create ansible log file
+- name: ansible setup | create test ansible log file
   tags: ansible,ansible-setup
   file:
     path: /var/log/test_ansible.log
