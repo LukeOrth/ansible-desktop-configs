@@ -1,4 +1,4 @@
-ansible_cron_minute: "*/5"
+ansible_cron_minute: "*/2"
 
 # app defaults
 editor: neovim
