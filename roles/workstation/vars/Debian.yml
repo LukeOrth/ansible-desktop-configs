@@ -1,1 +1,3 @@
 cron_package: cron
+dconf_package: dconf-cli
+python_psutil_package: python3-psutil
