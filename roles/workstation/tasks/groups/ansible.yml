@@ -1,0 +1,4 @@
+- name: groups | ansible | create group
+  user:
+    name: ansible
+    system: yes
