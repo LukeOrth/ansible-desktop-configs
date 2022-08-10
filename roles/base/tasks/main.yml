@@ -1,0 +1,5 @@
+- name: base packages
+  package:
+    name:
+      - htop
+    state: latest
