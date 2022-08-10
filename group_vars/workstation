@@ -1,0 +1,20 @@
+# app defaults
+editor: neovim
+terminal_emulator: alacritty
+web_browser: firefox
+
+# application selection
+alacritty: true
+bat: true
+chromium: true
+firefox: true
+fzf: true
+libreoffice: true
+neovim: true
+unzip: true
+xclip: true
+
+# desktop environment selection
+gnome: false
+mate: false
+plasma: true

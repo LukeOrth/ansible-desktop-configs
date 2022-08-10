@@ -1,25 +1,15 @@
-- name: workstation packages
-  package:
-    name:
-      - sct
-    state: latest
+# Load distribution-specific variables
+- include_vars: "{{ ansible_distribution }}.yml"
+  tags: always
 
-- name: add ansible user
-  user:
-    name: hermes
-    system: yes
+- block:
+  # Make sure users exist on the system
+  - import_tasks: users/hermes.yml
 
-- name: setup sudo for hermes user
-  copy:
-    src: sudoer_hermes
-    dest: /etc/sudoers.d/hermes
-    owner: root
-    group: root
-    mode: 0440
+  # Set up the ansible environment
+  - import_tasks: ansible_setup.yml
 
-- name: add ansible-pull cron job
-  cron:
-    name: ansible auto-provision
-    user: hermes
-    minute: "*/10"
-    job: ansible-pull -o -U https://github.com/LukeOrth/larch.git -i hosts
+  # Install software
+  
+  # Perform remaining tasks
+  - import_tasks: system_setup/cron.yml

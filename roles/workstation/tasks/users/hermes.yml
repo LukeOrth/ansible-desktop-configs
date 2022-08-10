@@ -1,0 +1,12 @@
+- name: users | hermes | create user
+  user:
+    name: hermes
+    system: yes
+
+- name: users | hermes | add sudoers file
+  copy:
+    src: users/sudoers_hermes
+    dest: /etc/sudoers.d/hermes
+    owner: root
+    group: root
+    mode: 0440
