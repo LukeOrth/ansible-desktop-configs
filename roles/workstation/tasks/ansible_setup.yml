@@ -23,7 +23,7 @@
     path: /var/log/ansible.log
     owner: hermes
     group: hermes
-    mode: 0664
+    mode: 0666
     state: touch
   changed_when: False
 
