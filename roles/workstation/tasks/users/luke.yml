@@ -29,7 +29,7 @@
 - name: users | luke | add public key
   tags: dotfiles,luke,ssh,ssh-keys,users
   copy:
-    src: users/luke_id_ed25519.pub
+    src: users/luke/luke_id_ed25519.pub
     dest: /home/luke/.ssh/luke_id_ed25519.pub
     owner: luke
     group: luke
@@ -38,7 +38,7 @@
 - name: users | luke | add private key
   tags: dotfiles,luke,ssh,ssh-keys,users
   copy:
-    src: users/luke_id_ed25519
+    src: users/luke/luke_id_ed25519
     dest: /home/luke/.ssh/luke_id_ed25519
     owner: luke
     group: luke
