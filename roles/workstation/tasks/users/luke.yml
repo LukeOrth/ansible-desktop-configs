@@ -1,0 +1,45 @@
+- name: users | luke | create user
+  tags: luke,sudo,users
+  user:
+    name: luke
+    comment: "Luke Orth"
+    password: "{{ luke_passwd }}"
+    shell: /bin/zsh
+
+- name: users | luke | add sudoers file
+  tags: luke,settings,sudo,system,users
+  copy:
+    src: users/sudoers_luke
+    dest: /etc/sudoers.d/luke
+    owner: root
+    group: root
+    mode: 0440
+
+- name: users | luke | create .ssh directory
+  tags: dotfiles,luke,ssh,users
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: luke
+    group: luke
+    mode: 0700
+  with_items:
+    - { dir: '/home/luke/.ssh' }
+
+- name: users | luke | add public key
+  tags: dotfiles,luke,ssh,ssh-keys,users
+  copy:
+    src: users/luke_id_ed25519.pub
+    dest: /home/luke/.ssh/luke_id_ed25519.pub
+    owner: luke
+    group: luke
+    mode: 0600
+
+- name: users | luke | add private key
+  tags: dotfiles,luke,ssh,ssh-keys,users
+  copy:
+    src: users/luke_id_ed25519
+    dest: /home/luke/.ssh/luke_id_ed25519
+    owner: luke
+    group: luke
+    mode: 0600

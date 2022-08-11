@@ -1,6 +1,7 @@
 - name: users | hermes | create user
   user:
     name: hermes
+    password_lock: yes
     system: yes
 
 - name: users | hermes | add vault key
@@ -13,7 +14,7 @@
 
 - name: users | hermes | add sudoers file
   copy:
-    src: users/sudoers_hermes
+    src: users/hermes/sudoers_hermes
     dest: /etc/sudoers.d/hermes
     owner: root
     group: root
