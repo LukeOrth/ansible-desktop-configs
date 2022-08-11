@@ -3,7 +3,7 @@
   user:
     name: luke
     comment: "Luke Orth"
-    password: "{{ luke_passwd }}"
+    password: "{{ luke_passwd | password_hash('sha512') }}"
     shell: /bin/zsh
 
 - name: users | luke | add sudoers file
