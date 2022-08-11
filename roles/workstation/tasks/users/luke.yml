@@ -9,7 +9,7 @@
 - name: users | luke | add sudoers file
   tags: luke,settings,sudo,system,users
   copy:
-    src: users/sudoers_luke
+    src: users/luke/sudoers_luke
     dest: /etc/sudoers.d/luke
     owner: root
     group: root
