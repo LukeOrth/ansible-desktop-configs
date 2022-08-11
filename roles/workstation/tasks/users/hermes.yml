@@ -5,7 +5,7 @@
 
 - name: users | hermes | add vault key
   copy:
-    src: users/vault_key
+    src: vault_key.j2
     dest: /home/hermes/.vault_key
     owner: hermes
     group: hermes
