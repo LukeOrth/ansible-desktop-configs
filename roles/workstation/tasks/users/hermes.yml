@@ -4,8 +4,8 @@
     system: yes
 
 - name: users | hermes | add vault key
-  copy:
-    template: vault_key.j2
+  template:
+    src: vault_key.j2
     dest: /home/hermes/.vault_key
     owner: hermes
     group: hermes
