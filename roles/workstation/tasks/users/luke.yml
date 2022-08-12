@@ -64,7 +64,7 @@
 
 - name: users | luke | clone dotfiles repository
   tags: dotfiles,luke,users,git
-  become: yes
+  recursive: yes
   git:
     repo: https://github.com/LukeOrth/dotfiles
     dest: /home/luke/dotfiles
