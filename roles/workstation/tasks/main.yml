@@ -1,0 +1,5 @@
+- name: workstation packages
+  package:
+    name:
+      - sct
+    state: latest
