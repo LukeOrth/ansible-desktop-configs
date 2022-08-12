@@ -64,10 +64,10 @@
 
 - name: users | luke | clone dotfiles repository
   tags: dotfiles,luke,users,git
-  recursive: yes
   git:
     repo: https://github.com/LukeOrth/dotfiles
     dest: /home/luke/dotfiles
+    recursive: yes
     force: yes
 
 - name: users | luke | GNU Stow symlink dotfiles
