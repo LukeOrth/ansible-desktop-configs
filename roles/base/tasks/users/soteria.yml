@@ -15,6 +15,17 @@
     group: root
     mode: 0440
 
+- name: Users | Soteria | Create .ssh Directory
+  tags: soteria,ssh,users
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: soteria
+    group: soteria
+    mode: 0700
+  with_items:
+    - { dir: '/home/soteria/.ssh' }
+
 - name: Users | Soteria | Add Public Key
   tags: soteria,ssh,ssh-keys,users
   copy:
