@@ -1,23 +1,23 @@
-- name: ansible setup | ensure ansible is at the latest version
+- name: Ansible Setup | Ensure Ansible Is At The Latest Version
   tags: ansible,ansible-setup,packages
   package:
     name: ansible
     state: latest
 
-- name: ansible setup | install required packages
+- name: Ansible Setup | Install Required Packages
   tags: ansible,ansible-setup,packages
   package:
     name:
       - "{{ dconf_package }}"
       - "{{ python_psutil_package }}"
 
-- name: ansible setup | install acl package
+- name: Ansible Setup | Install acl Package
   tags: ansible,ansible-setup,packages
   package:
     name: acl
   when: ansible_distribution in ["Debian", "Ubuntu"]
 
-- name: ansible setup | create ansible log file
+- name: Ansible Setup | Create Ansible Log File
   tags: ansible,ansible-setup
   file:
     path: /var/log/ansible.log
@@ -27,7 +27,7 @@
     state: touch
   changed_when: False
 
-- name: ansible setup | add logrotate config for ansible log file
+- name: Ansible Setup | Add Logrotate Config For Ansible Log File
   tags: ansible-setup
   copy:
     src: files/ansible_setup/logrotate
@@ -36,13 +36,13 @@
     group: root
     mode: 0644
 
-- name: ansible setup | remove default ansible directory (/etc/ansible) from host
+- name: Ansible Setup | Remove Default Ansible Directory (/etc/ansible) From Host
   tags: ansible,ansible-setup
   file:
     path: /etc/ansible
     state: absent
 
-- name: ansible setup | generate provision script from template
+- name: Ansible Setup | Generate Provision Script From Template
   tags: ansible,ansible-setup,scripts
   template:
     src: provision.sh.j2

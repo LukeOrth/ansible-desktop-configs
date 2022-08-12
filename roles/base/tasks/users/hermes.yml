@@ -1,10 +1,10 @@
-- name: users | hermes | create user
+- name: Users | Hermes | Create User
   user:
     name: hermes
     password_lock: yes
     system: yes
 
-- name: users | hermes | add vault key
+- name: Users | Hermes | Add Vault Key
   template:
     src: vault_key.j2
     dest: /home/hermes/.vault_key
@@ -12,7 +12,7 @@
     group: hermes
     mode: 0600
 
-- name: users | hermes | add sudoers file
+- name: Users | Hermes | Add Sudoers File
   copy:
     src: users/hermes/sudoers_hermes
     dest: /etc/sudoers.d/hermes
