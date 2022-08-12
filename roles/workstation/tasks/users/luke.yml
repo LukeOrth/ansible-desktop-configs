@@ -64,10 +64,13 @@
 
 - name: users | luke | clone dotfiles repository
   tags: dotfiles,luke,users,git
+  become: yes
+  become_user: luke
   git:
-    repo: https://github.com/LukeOrth/dotfiles
+    repo: git@github.com/LukeOrth/dotfiles.git
     dest: /home/luke/dotfiles
-    recursive: yes
+    accept_hostkey: yes
+    key_file: /home/luke/.ssh/luke_id_ed25519
     force: yes
 
 - name: users | luke | GNU Stow symlink dotfiles
