@@ -1,0 +1,11 @@
+- name: Software | Package Cleanup | Remove Unwanted Packages (apt)
+  tags: cleanup,packages,system,settings
+  package:
+    state: absent
+    name:
+      - cowsay
+      - exim4
+      - exim4-base
+      - exim4-config
+      - nano
+  when: ansible_distribution in ["Debian", "Ubuntu"]

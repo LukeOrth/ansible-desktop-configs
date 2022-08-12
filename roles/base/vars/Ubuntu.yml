@@ -1,5 +1,13 @@
 acl_package: acl
 ansible_package: ansible
 cron_package: cron
+curl_package: curl
 dconf_package: dconf-cli
+htop_package: htop
 python_psutil_package: python3-psutil
+rsync_package: rsync
+tmux_package: tmux
+traceroute_package: traceroute
+vim_package: vim
+wget_package: wget
+zsh_package: zsh
