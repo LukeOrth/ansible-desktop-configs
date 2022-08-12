@@ -19,6 +19,7 @@
   tags: soteria,ssh,ssh-keys,users
   copy:
     src: users/soteria/soteria_id_ed25519.pub
+    dest: /home/soteria/.ssh/soteria_id_ed25519.pub
     owner: soteria
     group: soteria
     mode: 0600
@@ -27,6 +28,7 @@
   tags: soteria,ssh,ssh-keys,users
   copy:
     src: users/soteria/soteria_id_ed25519
+    dest: /home/soteria/.ssh/soteria_id_ed25519
     owner: soteria
     group: soteria
     mode: 0600
