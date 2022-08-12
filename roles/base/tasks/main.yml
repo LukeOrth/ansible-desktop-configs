@@ -3,16 +3,21 @@
   tags: always
 
 - block:
-  # Make sure users exist on the system
+  # Create the primary system/backup users
   - import_tasks: users/soteria.yml
   - import_tasks: users/root.yml
-  - import_tasks: users/luke.yml
   - import_tasks: users/hermes.yml
+
+  # Install utilities
+  - import_tasks: software/packages_utilities.yml
+
+  # Create my user
+  - import_tasks: users/luke.yml
 
   # Set up the ansible environment
   - import_tasks: ansible_setup.yml
 
-  # Install software
+  # Install remaining software
   
   # Perform remaining tasks
   - import_tasks: system_setup/cron.yml

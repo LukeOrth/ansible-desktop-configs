@@ -1,22 +1,3 @@
-- name: Ansible Setup | Ensure Ansible Is At The Latest Version
-  tags: ansible,ansible-setup,packages
-  package:
-    name: ansible
-    state: latest
-
-- name: Ansible Setup | Install Required Packages
-  tags: ansible,ansible-setup,packages
-  package:
-    name:
-      - "{{ dconf_package }}"
-      - "{{ python_psutil_package }}"
-
-- name: Ansible Setup | Install acl Package
-  tags: ansible,ansible-setup,packages
-  package:
-    name: acl
-  when: ansible_distribution in ["Debian", "Ubuntu"]
-
 - name: Ansible Setup | Create Ansible Log File
   tags: ansible,ansible-setup
   file:

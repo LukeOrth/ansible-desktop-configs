@@ -1,0 +1,9 @@
+- name: Software | Utilities | Install Utility Packages
+  tags: packages,system,settings
+  package:
+    state: latest
+    name:
+      - "{{ acl_package }}"
+      - "{{ ansible_package }}"
+      - "{{ dconf_package }}"
+      - "{{ python_psutil_package }}"
