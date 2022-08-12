@@ -1,0 +1,32 @@
+- name: Users | Soteria | Create User
+  tags: soteria,sudo,users
+  user:
+    name: soteria
+    comment: "Backup User"
+    password: "{{ soteria_passwd | password_hash('sha512') }}"
+    shell: /bin/zsh
+
+- name: Users | Soteria | Add Sudoers File
+  tags: soteria,settings,sudo,system,users
+  copy:
+    src: users/soteria/sudoers_soteria
+    dest: /etc/sudoers.d/soteria
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Users | Soteria | Add Public Key
+  tags: soteria,ssh,ssh-keys,users
+  copy:
+    src: users/soteria/soteria_id_ed25519.pub
+    owner: soteria
+    group: soteria
+    mode: 0600
+
+- name: Users | Soteria | Add Private Key
+  tags: soteria,ssh,ssh-keys,users
+  copy:
+    src: users/soteria/soteria_id_ed25519
+    owner: soteria
+    group: soteria
+    mode: 0600
