@@ -3,7 +3,14 @@
   package:
     state: latest
     name:
-      - "{{ acl_package }}"
       - "{{ ansible_package }}"
       - "{{ dconf_package }}"
       - "{{ python_psutil_package }}"
+
+- name: Software | Utilities | Install Utilitiy Packages (apt)
+  tags: packages,system,settings,apt
+  package:
+    state: latest
+    name:
+      - "{{ acl_package }}"
+  when: ansible_distribution in ["Debian", "Ubuntu"]
