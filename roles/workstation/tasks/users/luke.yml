@@ -43,3 +43,34 @@
     owner: luke
     group: luke
     mode: 0600
+
+- name: users | luke | create dotfiles directory
+  tags: dotfiles,luke,users
+  file:
+    path: /home/luke/dotfiles
+    state: directory
+    owner: luke
+    group: luke
+    mode: 0700
+
+- name: users | luke | create Vim Undodir
+  tags: dotfiles,luke,users
+  file:
+    path: /home/luke/.vim/.undodir
+    state: directory
+    owner: luke
+    group: luke
+    mode: 0700
+
+- name: users | luke | clone dotfiles repository
+  tags: dotfiles,luke,users,git
+  git:
+    repo: https://github.com/LukeOrth/dotfiles
+    dest: /home/luke/dotfiles
+    force: yes
+
+- name: users | luke | GNU Stow symlink dotfiles
+  tags: dotfiles,luke,users
+  shell: stow *
+  args:
+    chdir: /home/luke/dotfiles
