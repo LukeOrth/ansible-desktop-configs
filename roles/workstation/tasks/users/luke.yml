@@ -67,7 +67,7 @@
   become: yes
   become_user: luke
   git:
-    repo: git@github.com/LukeOrth/dotfiles.git
+    repo: git@github.com:LukeOrth/dotfiles.git
     dest: /home/luke/dotfiles
     accept_hostkey: yes
     key_file: /home/luke/.ssh/luke_id_ed25519
