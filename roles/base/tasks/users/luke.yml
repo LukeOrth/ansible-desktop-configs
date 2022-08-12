@@ -1,4 +1,4 @@
-- name: users | luke | create user
+- name: Users | Luke | Create User
   tags: luke,sudo,users
   user:
     name: luke
@@ -6,7 +6,7 @@
     password: "{{ luke_passwd | password_hash('sha512') }}"
     shell: /bin/zsh
 
-- name: users | luke | add sudoers file
+- name: Users | Luke | Add Sudoers File
   tags: luke,settings,sudo,system,users
   copy:
     src: users/luke/sudoers_luke
@@ -15,7 +15,7 @@
     group: root
     mode: 0440
 
-- name: users | luke | create .ssh directory
+- name: Users | Luke | Create .ssh Directory
   tags: dotfiles,luke,ssh,users
   file:
     path: "{{ item.dir }}"
@@ -26,7 +26,7 @@
   with_items:
     - { dir: '/home/luke/.ssh' }
 
-- name: users | luke | add public key
+- name: Users | Luke | Add Public Key
   tags: dotfiles,luke,ssh,ssh-keys,users
   copy:
     src: users/luke/luke_id_ed25519.pub
@@ -35,7 +35,7 @@
     group: luke
     mode: 0600
 
-- name: users | luke | add private key
+- name: Users | Luke | Add Private Key
   tags: dotfiles,luke,ssh,ssh-keys,users
   copy:
     src: users/luke/luke_id_ed25519
@@ -44,7 +44,7 @@
     group: luke
     mode: 0600
 
-- name: users | luke | create dotfiles directory
+- name: Users | Luke | Create Dotfiles Directory
   tags: dotfiles,luke,users
   file:
     path: /home/luke/dotfiles
@@ -53,7 +53,7 @@
     group: luke
     mode: 0700
 
-- name: users | luke | create Vim Undodir
+- name: Users | Luke | Create Vim Undodir
   tags: dotfiles,luke,users
   file:
     path: /home/luke/.vim/.undodir
@@ -62,7 +62,7 @@
     group: luke
     mode: 0700
 
-- name: users | luke | clone dotfiles repository
+- name: Users | Luke | Clone Dotfiles Repository
   tags: dotfiles,luke,users,git
   become: yes
   become_user: luke
@@ -73,7 +73,7 @@
     key_file: /home/luke/.ssh/luke_id_ed25519
     force: yes
 
-- name: users | luke | GNU Stow symlink dotfiles
+- name: Users | Luke | GNU Stow Symlink Dotfiles
   tags: dotfiles,luke,users
   shell: stow *
   args:
