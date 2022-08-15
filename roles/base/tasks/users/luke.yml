@@ -44,6 +44,15 @@
     group: luke
     mode: 0600
 
+- name: Users | Luke | Create Fonts Directory
+  tags: fonts,luke,users
+  file:
+    path: /home/luke/.local/share/fonts
+    state: directory
+    owner: luke
+    group: luke
+    mode: 0700
+
 - name: Users | Luke | Create Dotfiles Directory
   tags: dotfiles,luke,users
   file:

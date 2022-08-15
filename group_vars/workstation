@@ -1,5 +1,3 @@
-ansible_cron_minute: "*/2"
-
 # app defaults
 editor: neovim
 terminal_emulator: alacritty
