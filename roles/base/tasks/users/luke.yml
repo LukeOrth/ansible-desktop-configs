@@ -82,21 +82,21 @@
     key_file: /home/luke/.ssh/luke_id_ed25519
     force: yes
 
-- name: Users | Luke | Replace Sensitive Environment Variables
-  tags: dotfiles,scripts,luke,users
-  lineinfile:
-    path: /home/luke/dotfiles/zsh/.zshrc
-    regexp: '^SENSITIVE_ENV_VARS'
-    line: "{{ item }}"
-  with_items:
-    - {{ owm_api_key }}
-    - {{ current_city }}
-
 - name: Users | Luke | GNU Stow Symlink Dotfiles
   tags: dotfiles,luke,users
   shell: stow *
   args:
     chdir: /home/luke/dotfiles
+
+- name: Users | Luke | Replace Sensitive Environment Variables
+  tags: dotfiles,scripts,luke,users
+  lineinfile:
+    path: /home/luke/.zshrc
+    regexp: '^SENSITIVE_ENV_VARS'
+    line: "{{ item }}"
+  with_items:
+    - "{{ owm_api_key }}"
+    - "{{ current_city }}"
 
 - name: Users | Luke | Get Custom Weather Script
   tags: scripts,luke,users
