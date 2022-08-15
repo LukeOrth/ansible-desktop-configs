@@ -87,3 +87,24 @@
   shell: stow *
   args:
     chdir: /home/luke/dotfiles
+
+- name: Users | Luke | Get Custom Weather Script
+  tags: scripts,luke,users
+  get_url:
+    url: https://raw.githubusercontent.com/LukeOrth/scripts/master/weather.go
+    dest: /usr/local/bin/
+    mode: 0644
+
+- name: Users | Luke | Build Weather Script
+  tags: scripts,luke,users
+  shell: go build weather.go
+  args:
+    chdir: /usr/local/bin
+
+- name: Users | Luke | Make Weather Script Executable
+  tags: scripts,luke,Users
+  file:
+    path: /usr/local/bin/weather
+    owner: root
+    group: root
+    mode: 0755
