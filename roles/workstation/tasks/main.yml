@@ -1,5 +1,2 @@
-- name: workstation packages
-  package:
-    name:
-      - sct
-    state: latest
+- block:
+  - import_tasks: software/fonts.yml
