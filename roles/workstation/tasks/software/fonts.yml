@@ -2,4 +2,4 @@
   tags: software,fonts
   get_url:
     url: https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf
-    dest: /home/luke/.local/share/fonts/
+    dest: "/home/luke/.local/share/fonts/Hack Regular Nerd Font Complete.ttf"
